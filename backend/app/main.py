@@ -4,7 +4,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import chat, tasks
+from app.api import chat, tasks, ws
 from app.api import attachment as attachment_api
 from app.auth.router import router as auth_router
 from app.config import get_settings
@@ -44,6 +44,7 @@ app.include_router(auth_router)
 app.include_router(chat.router)
 app.include_router(attachment_api.router)
 app.include_router(tasks.router)
+app.include_router(ws.router)
 
 
 @app.get("/health")
