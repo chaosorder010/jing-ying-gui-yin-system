@@ -4,8 +4,12 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api import chat, tasks
+from app.api import attachment as attachment_api
 from app.auth.router import router as auth_router
 from app.config import get_settings
+from app.database import SessionLocal
+from app.services.config_service import ensure_default_configs
 
 
 @asynccontextmanager
@@ -13,6 +17,11 @@ async def lifespan(_: FastAPI):
     settings = get_settings()
     for root in (settings.upload_root, settings.export_root, settings.workspace_root, settings.data_root):
         Path(root).mkdir(parents=True, exist_ok=True)
+    db = SessionLocal()
+    try:
+        ensure_default_configs(db)
+    finally:
+        db.close()
     yield
 
 
@@ -32,6 +41,9 @@ app.add_middleware(
 )
 
 app.include_router(auth_router)
+app.include_router(chat.router)
+app.include_router(attachment_api.router)
+app.include_router(tasks.router)
 
 
 @app.get("/health")
