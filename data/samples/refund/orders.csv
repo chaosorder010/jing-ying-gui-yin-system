@@ -1,0 +1,7 @@
+order_id,user_id,product_id,amount,status,created_at
+O100,U1,1001,129.0,refunded,2026-08-01
+O101,U2,1004,59.0,refunded,2026-08-01
+O102,U3,1002,199.0,refunded,2026-08-02
+O103,U4,1003,39.0,refunded,2026-08-02
+O104,U5,1005,79.0,refunded,2026-08-03
+O105,U1,1004,59.0,paid,2026-08-03

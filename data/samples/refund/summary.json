@@ -1,0 +1,28 @@
+{
+  "problem_definition": "近期退款率上升，需要识别主要退款模式与可干预环节",
+  "key_metrics": [
+    {"metric_name": "退款申请量", "metric_value": 1860, "metric_unit": "单", "metric_period": "近30天"},
+    {"metric_name": "退款率", "metric_value": 4.8, "metric_unit": "%", "metric_period": "近30天"},
+    {"metric_name": "质量问题占比", "metric_value": 37, "metric_unit": "%", "metric_period": "近30天"},
+    {"metric_name": "物流超时占比", "metric_value": 22, "metric_unit": "%", "metric_period": "近30天"}
+  ],
+  "evidence_list": [
+    {
+      "source_type": "table",
+      "source_name": "refund_requests / refund_reasons",
+      "evidence_text": "质量问题与描述不符合计占比超过一半，集中在服饰与3C 配件",
+      "related_metric": "退款率",
+      "confidence": 0.9
+    },
+    {
+      "source_type": "table",
+      "source_name": "orders / users",
+      "evidence_text": "新客首单退款率显著高于老客，且物流超时订单退款概率提升约 2.1 倍",
+      "related_metric": "物流超时占比",
+      "confidence": 0.84
+    }
+  ],
+  "conclusion_text": "退款抬升主要由质量/描述不符与物流超时驱动；服饰与 3C 配件是重点品类，新客首单风险更高。",
+  "missing_data_text": "缺少仓配时效明细、客服会话文本、以及售后质检抽检记录。",
+  "next_action_text": "1. 针对服饰/3C 强化质检与详情页一致性校验\n2. 对高风险线路设置物流时效预警并提前触达用户"
+}

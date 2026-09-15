@@ -1,0 +1,6 @@
+user_id,user_name,is_new_customer,register_date
+U1,张三,true,2026-07-20
+U2,李四,false,2025-01-10
+U3,王五,true,2026-07-28
+U4,赵六,false,2024-11-02
+U5,钱七,true,2026-08-01

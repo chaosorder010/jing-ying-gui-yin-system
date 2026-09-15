@@ -1,0 +1,28 @@
+{
+  "problem_definition": "商品目录结构与搜索流量匹配度偏低，导致曝光未能有效转化为点击与成交",
+  "key_metrics": [
+    {"metric_name": "搜索曝光总量", "metric_value": 128450, "metric_unit": "次", "metric_period": "近30天"},
+    {"metric_name": "点击率 CTR", "metric_value": 3.2, "metric_unit": "%", "metric_period": "近30天"},
+    {"metric_name": "转化率 CVR", "metric_value": 1.1, "metric_unit": "%", "metric_period": "近30天"},
+    {"metric_name": "低转化类目数", "metric_value": 4, "metric_unit": "个", "metric_period": "近30天"}
+  ],
+  "evidence_list": [
+    {
+      "source_type": "table",
+      "source_name": "search_impressions / clicks / conversions",
+      "evidence_text": "家电配件、宠物用品类目曝光高但点击率低于均值 40%",
+      "related_metric": "点击率 CTR",
+      "confidence": 0.86
+    },
+    {
+      "source_type": "table",
+      "source_name": "products / categories",
+      "evidence_text": "标题关键词与类目标签不一致的商品占比约 18%",
+      "related_metric": "转化率 CVR",
+      "confidence": 0.81
+    }
+  ],
+  "conclusion_text": "主要归因于类目标签噪声与标题关键词覆盖不足，家电配件与宠物用品两个类目贡献了大部分无效曝光。",
+  "missing_data_text": "缺少商品主图质量评分、搜索词意图标注、以及竞品同款价格带数据。",
+  "next_action_text": "1. 对低 CTR 类目批量校正类目标签与标题关键词\n2. 对高曝光低转化 SKU 做 A/B 主图与详情页优化"
+}
