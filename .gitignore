@@ -16,3 +16,4 @@ workspace/**
 .idea/
 *.log
 pgdata/
+.codegraph/
